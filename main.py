@@ -1,15 +1,30 @@
-# This is a sample Python script.
+#Detech face of images
+import cv2
+from cv2.data import haarcascades
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+image_path = 'imgs/peo1.jpg'
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+face_detector = cv2.CascadeClassifier('haarcascades/haarcascade_frontalface_alt.xml')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+img = cv2.imread(image_path)
+img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
+
+
+
+while True:
+
+
+    faces = face_detector.detectMultiScale(img_gray, 1.3, 5)
+    for (x, y, w, h) in faces:
+        cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
+
+    cv2.imshow('FRAME', img)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+
+cv2.destroyAllWindows()
