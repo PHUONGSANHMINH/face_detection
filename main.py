@@ -43,7 +43,7 @@ while True:
    time.sleep(0.5)
    for (x,y,w,h) in faces:
        roi=cv2.resize(frame[y+2: y+h-2, x+2: x+w-2],(100,100))
-       cv2.imwrite('imgs_roi/roi_{}.jpg'.format(count),roi)
+       cv2.imwrite('train-data/roi_{}.jpg'.format(count),roi)
        count +=1
        cv2.rectangle(frame,(x,y),(x+w, y+h),(128,255,50),1)
 
