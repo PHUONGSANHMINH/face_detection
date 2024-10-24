@@ -35,7 +35,7 @@ import time
 # nhận diện gương mặt bằng cam
 # cam = cv2.VideoCapture(0)
 #  nhận diện gương mặt bằng video
-cam = cv2.VideoCapture('abs.mp4')
+cam = cv2.VideoCapture('testtiktok.mp4')
 count = 0
 while True:
    OK, frame= cam.read()
